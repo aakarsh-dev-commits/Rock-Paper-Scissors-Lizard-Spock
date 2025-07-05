@@ -7,14 +7,14 @@ function getComputerChoice() {
     ? (compChoice = "Paper")
     : (compChoice = "Scissors");
 
-  console.log("Computer chose " + compChoice);
+  alert("Computer chose " + compChoice);
   return compChoice;
 }
 
 function getHumanChoice() {
   let humChoice;
   humChoice = prompt("Rock or Paper or Scissors ?");
-  console.log("You chose " + humChoice);
+  alert("You chose " + humChoice);
   return humChoice;
 }
 
@@ -29,25 +29,32 @@ function playRound(humanChoice, computerChoice) {
   compChoice = compChoice.toUpperCase();
 
   if (compChoice === humChoice) {
-    console.log("its a tie both chose " + humChoice);
+    alert("its a tie both chose " + humChoice);
+    alert("Score : You - " + humanScore + " Computer - " + computerScore);
   } else if (compChoice === "ROCK" && humChoice === "PAPER") {
     humanScore++;
-    console.log("You WON! Paper beats Rock !!");
+    alert("You WON! Paper beats Rock !!");
+    alert("Score : You - " + humanScore + " Computer - " + computerScore);
   } else if (compChoice === "ROCK" && humChoice === "SCISSORS") {
     computerScore++;
-    console.log("You LOST! Rock beats Scissors !!");
+    alert("You LOST! Rock beats Scissors !!");
+    alert("Score : You - " + humanScore + " Computer - " + computerScore);
   } else if (compChoice === "PAPER" && humChoice === "ROCK") {
     computerScore++;
-    console.log("You LOST! Paper beats Rock !!");
+    alert("You LOST! Paper beats Rock !!");
+    alert("Score : You - " + humanScore + " Computer - " + computerScore);
   } else if (compChoice === "PAPER" && humChoice === "SCISSORS") {
     humanScore++;
-    console.log("You WON! Scissors beats Paper !!");
+    alert("You WON! Scissors beats Paper !!");
+    alert("Score : You - " + humanScore + " Computer - " + computerScore);
   } else if (compChoice === "SCISSORS" && humChoice === "PAPER") {
     computerScore++;
-    console.log("You LOST! Scissors beats Paper !!");
+    alert("You LOST! Scissors beats Paper !!");
+    alert("Score : You - " + humanScore + " Computer - " + computerScore);
   } else if (compChoice === "SCISSORS" && humChoice === "ROCK") {
     humanScore++;
-    console.log("You WON! Rock beats Scissors !!");
+    alert("You WON! Rock beats Scissors !!");
+    alert("Score : You - " + humanScore + " Computer - " + computerScore);
   }
 }
 let number = +prompt("Enter the number of rounds you want to play the game");
