@@ -50,3 +50,12 @@ function playRound(humanChoice, computerChoice) {
     console.log("You WON! Rock beats Scissors !!");
   }
 }
+let number = +prompt("Enter the number of rounds you want to play the game");
+
+function playGame(number) {
+  for (let i = 0; i < number; i++) {
+    playRound(getHumanChoice, getComputerChoice);
+  }
+}
+
+playGame(number);
