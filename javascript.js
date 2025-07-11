@@ -6,63 +6,117 @@ function getComputerChoice() {
     : num == 1
     ? (compChoice = "Paper")
     : (compChoice = "Scissors");
-
-  alert("Computer chose " + compChoice);
   return compChoice;
-}
-
-function getHumanChoice() {
-  let humChoice;
-  humChoice = prompt("Rock or Paper or Scissors ?");
-  alert("You chose " + humChoice);
-  return humChoice;
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-  let humChoice = humanChoice();
-  let compChoice = computerChoice();
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+const choice = document.createElement("li");
+const text = document.createElement("li");
+const Score = document.createElement("li");
+const list = document.querySelector("ul");
+
+rock.addEventListener("click", () => {
+  if (humanScore == 5 || computerScore == 5) {
+    if (humanScore > computerScore) {
+      alert("YOU WON!!");
+      humanScore = 0;
+      computerScore = 0;
+    } else {
+      alert("COMPUTER WON!!");
+      humanScore = 0;
+      computerScore = 0;
+    }
+  }
+  const ROCK = "ROCK";
+  playRound(ROCK, getComputerChoice);
+});
+
+paper.addEventListener("click", () => {
+  if (humanScore == 5 || computerScore == 5) {
+    if (humanScore > computerScore) {
+      alert("YOU WON!!");
+      humanScore = 0;
+      computerScore = 0;
+    } else {
+      alert("COMPUTER WON!!");
+      humanScore = 0;
+      computerScore = 0;
+    }
+  }
+  const PAPER = "PAPER";
+  playRound(PAPER, getComputerChoice);
+});
+
+scissors.addEventListener("click", () => {
+  if (humanScore == 5 || computerScore == 5) {
+    if (humanScore > computerScore) {
+      alert("YOU WON!!");
+      humanScore = 0;
+      computerScore = 0;
+    } else {
+      alert("COMPUTER WON!!");
+      humanScore = 0;
+      computerScore = 0;
+    }
+  }
+  const SCISSORS = "SCISSORS";
+  playRound(SCISSORS, getComputerChoice);
+});
+
+function playRound(humChoice, computerChoice) {
+  compChoice = computerChoice();
 
   humChoice = humChoice.toUpperCase();
   compChoice = compChoice.toUpperCase();
 
+  list.appendChild(choice);
+  list.appendChild(text);
+  list.appendChild(Score);
+
   if (compChoice === humChoice) {
-    alert("its a tie both chose " + humChoice);
-    alert("Score : You - " + humanScore + " Computer - " + computerScore);
+    choice.textContent = `Computer Chose : ${compChoice}`;
+    text.textContent = "its a tie both chose " + humChoice;
+    Score.textContent = `You -  ${humanScore}   computer - ${computerScore} `;
   } else if (compChoice === "ROCK" && humChoice === "PAPER") {
     humanScore++;
-    alert("You WON! Paper beats Rock !!");
-    alert("Score : You - " + humanScore + " Computer - " + computerScore);
+
+    choice.textContent = `Computer Chose : ${compChoice}`;
+    text.textContent = "You WON! Paper beats Rock !!";
+    Score.textContent = `You -  ${humanScore}   computer - ${computerScore} `;
   } else if (compChoice === "ROCK" && humChoice === "SCISSORS") {
     computerScore++;
-    alert("You LOST! Rock beats Scissors !!");
-    alert("Score : You - " + humanScore + " Computer - " + computerScore);
+
+    choice.textContent = `Computer Chose : ${compChoice}`;
+    text.textContent = "You LOST! Rock beats Scissors !!";
+    Score.textContent = `You -  ${humanScore}   computer - ${computerScore} `;
   } else if (compChoice === "PAPER" && humChoice === "ROCK") {
     computerScore++;
-    alert("You LOST! Paper beats Rock !!");
-    alert("Score : You - " + humanScore + " Computer - " + computerScore);
+
+    choice.textContent = `Computer Chose : ${compChoice}`;
+    text.textContent = "You LOST! Paper beats Rock !!";
+    Score.textContent = `You -  ${humanScore}   computer - ${computerScore} `;
   } else if (compChoice === "PAPER" && humChoice === "SCISSORS") {
     humanScore++;
-    alert("You WON! Scissors beats Paper !!");
-    alert("Score : You - " + humanScore + " Computer - " + computerScore);
+
+    choice.textContent = `Computer Chose : ${compChoice}`;
+    text.textContent = "You WON! Scissors beats Paper !!";
+    Score.textContent = `You -  ${humanScore}   computer - ${computerScore} `;
   } else if (compChoice === "SCISSORS" && humChoice === "PAPER") {
     computerScore++;
-    alert("You LOST! Scissors beats Paper !!");
-    alert("Score : You - " + humanScore + " Computer - " + computerScore);
+
+    choice.textContent = `Computer Chose : ${compChoice}`;
+    text.textContent = "You LOST! Scissors beats Paper !!";
+    Score.textContent = `You -  ${humanScore}   computer - ${computerScore} `;
   } else if (compChoice === "SCISSORS" && humChoice === "ROCK") {
     humanScore++;
-    alert("You WON! Rock beats Scissors !!");
-    alert("Score : You - " + humanScore + " Computer - " + computerScore);
+    choice.textContent = `Computer Chose : ${compChoice}`;
+    text.textContent = "You WON! Rock beats Scissors !!";
+    Score.textContent = `You -  ${humanScore}   computer - ${computerScore} `;
   }
 }
-let number = +prompt("Enter the number of rounds you want to play the game");
-
-function playGame(number) {
-  for (let i = 0; i < number; i++) {
-    playRound(getHumanChoice, getComputerChoice);
-  }
-}
-
-playGame(number);
